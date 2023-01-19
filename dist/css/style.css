@@ -1,0 +1,21 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background: url('/images/city.jpg') center center / cover no-repeat;
+  font-family: "Open Sans", sans-serif;
+  min-height: 100vh;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 18px;
+	letter-spacing: 0.6px;
+	color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
