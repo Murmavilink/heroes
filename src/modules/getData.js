@@ -7,26 +7,26 @@ const getData = async () => {
     let count = 1;
 
     btn.addEventListener('click', () => {
-        console.log(stack);
-
         cards.innerHTML = '';
         getHeroes();
-    }); 
 
-   
+        setTimeout(() => {
+            if(btn) {
+                btn.scrollIntoView({
+                    block: "center", 
+                    behavior: "smooth"
+                });
+            }
+        }, 30);
+    });
 
     const render = (data) => {
-        console.log(data);
-
         data.forEach((item, index) => {
-            
-                cards.insertAdjacentHTML('beforeend', `
-                <a class="card" href="${index}">
-                    <img class="card__img" src="${item.photo}" alt="card img">
-                    <h3 class="card__title">${item.name}</h3>
-                </a>`);  
-            
-            
+            cards.insertAdjacentHTML('beforeend', `
+            <a class="card" href="${index}">
+                <img class="card__img" src="${item.photo}" alt="card img">
+                <h3 class="card__title">${item.name}</h3>
+            </a>`);  
         });
     };
 
@@ -35,10 +35,8 @@ const getData = async () => {
     };
 
     const changeData = (data) => {
-
-        console.log(data);
         const newStack = stack * count;
-
+        
         render(sliceArray(data, newStack));
 
         if(data.length > newStack) {
