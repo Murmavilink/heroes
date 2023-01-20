@@ -5,7 +5,7 @@
 }
 
 body {
-  background: url('/images/city.jpg') center center / cover no-repeat;
+  background-image: url('/images/bg.jpg');
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   min-height: 100vh;
@@ -50,11 +50,14 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+.main {
+  padding-bottom: 50px;
+}
+
 .main__innner {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding-bottom: 50px;
 }
 
 .sidebar {
@@ -113,6 +116,19 @@ body {
   color: #fff;
 }
 
+.btn {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 16px;
+  background-color: #1a191f;
+  font-size: 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #1a191f;
+  font-family: 'Inter', sans-serif;
+  margin-left: auto;
+  color: #fff;
+}
 
 @media(max-width: 768px) {
   .logo {
