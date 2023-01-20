@@ -1,4 +1,4 @@
-const getData = async () => {
+const getData = () => {
     
     const cards = document.querySelector('.cards');
     const btn = document.querySelector('.btn');
@@ -6,21 +6,9 @@ const getData = async () => {
     let stack = 9;
     let count = 1;
 
-    btn.addEventListener('click', () => {
-        cards.innerHTML = '';
-        getHeroes();
-
-        setTimeout(() => {
-            if(btn) {
-                btn.scrollIntoView({
-                    block: "center", 
-                    behavior: "smooth"
-                });
-            }
-        }, 30);
-    });
-
     const render = (data) => {
+        cards.innerHTML = '';
+
         data.forEach((item, index) => {
             cards.insertAdjacentHTML('beforeend', `
             <a class="card" href="${index}">
@@ -59,8 +47,18 @@ const getData = async () => {
         .catch(error => console.log(error));
     };
 
+    btn.addEventListener('click', () => {
+        getHeroes();
+
+        setTimeout(() => {
+            btn.scrollIntoView({
+                block: "center", 
+                behavior: "smooth"
+            });
+        }, 30);
+    });
+
     getHeroes();
- 
 };
 
 export default getData;
