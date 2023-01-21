@@ -13,10 +13,10 @@ const getData = () => {
 
         data.forEach((item, index) => {
             cards.insertAdjacentHTML('beforeend', `
-            <a class="card" href="${index}">
+            <div class="card" data-id="${index}">
                 <img class="card__img" src="${item.photo}" alt="card img">
                 <h3 class="card__title">${item.name}</h3>
-            </a>`);  
+            </div>`);  
         });
     };
 
