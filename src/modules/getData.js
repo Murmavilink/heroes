@@ -1,7 +1,6 @@
-import { modal } from "./modal";
+import modal from "./modal";
 
 const getData = () => {
-
     const cards = document.querySelector('.cards');
     const btn = document.querySelector('.btn');
 
