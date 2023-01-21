@@ -1,5 +1,3 @@
-import modal from "./modal";
-
 const getData = () => {
     const cards = document.querySelector('.cards');
     const btn = document.querySelector('.btn');
@@ -60,7 +58,6 @@ const getData = () => {
     });
 
     getHeroes();
-    modal();
 };
 
 export default getData;
