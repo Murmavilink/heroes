@@ -11,6 +11,7 @@
   <title>Marvel heroes</title>
   <script defer src="js/main.js"></script>
 </head>
+
 <body>
 
   <header class="header">
@@ -20,12 +21,12 @@
         <a class="logo" href="#">
           <img src="./images/logo.webp" alt="logo">
         </a>
-  
+
         <form class="form-header">
           <input class="form-header__search" placeholder="поиск" type="text">
         </form>
       </div>
-    
+
     </div>
   </header>
 
@@ -57,9 +58,9 @@
             </select>
           </form>
         </div>
-    
+
         <div class="cards">
-          
+
           <!-- <a class="card" href="#">
             <img class="card__img" src="/dbimage/97d1d9f934a350cee765c5ac1a466605.jpg" alt="card img">
             <h3 class="card__title">Titan</h3>
@@ -67,10 +68,26 @@
 
         </div>
       </div>
-     
+
+      <div class="modal">
+        <!-- <div class="modal__card">
+          <img class="modal__movie-backdrop" src="${respData.posterUrlPreview}" alt="">
+          <h2>
+            <span class="modal__movie-title">${respData.nameRu}</span>
+            <span class="modal__movie-release-year">${respData.year}</span>
+          </h2>
+          <ul class="modal__movie-info">
+            <div class="loader"></div>
+            <li></li>
+          </ul>
+          <button type="button" class="modal__button-close">Закрыть</button>
+        </div> -->
+      </div>
+
       <button class="btn">Показать еще</button>
     </div>
   </main>
 
 </body>
+
 </html>
