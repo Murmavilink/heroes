@@ -3,7 +3,7 @@ const modal = () => {
 
     cards.addEventListener('click', (e) => {
         e.preventDefault();
-        console.log(e.target.closest('a').getAttribute('href'));
+        console.log(e.target.closest('.card').dataset.id);
     });
 
 

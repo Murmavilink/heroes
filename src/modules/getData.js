@@ -61,6 +61,7 @@ const getData = () => {
     });
 
     getHeroes();
+    modal();
 };
 
 export default getData;
