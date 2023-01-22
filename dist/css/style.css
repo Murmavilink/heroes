@@ -67,7 +67,7 @@ body {
   background-color: #fff;
 }
 
-.form__select {
+.select-inner__item {
   width: 100%;
   padding: 10px;
   cursor: pointer;
@@ -77,7 +77,7 @@ body {
   margin-bottom: 25px;
 }
 
-.form__select option {
+.select-inner__item option {
   display: block;
   font-family: 'Inter', sans-serif;
   font-size: 16px;
