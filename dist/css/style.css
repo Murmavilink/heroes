@@ -67,7 +67,7 @@ body {
   background-color: #fff;
 }
 
-.select-inner__item {
+.form-select {
   width: 100%;
   padding: 10px;
   cursor: pointer;

@@ -15,13 +15,14 @@ const modal = () => {
                 <li><span>Имя:</span> ${obj.actors}</li>
                 ${obj.birthDay ? `<li><span>День рождения:</span> ${obj.birthDay}</li>` : '<li><span>День рождения:</span> &#9785;</li>'}
                 <li><span>Пол:</span> ${obj.gender === 'male' ? 'Мужской' : 'Женский'}</li>
+                ${obj.citizenship ? `<li><span>Гражданство: </span> ${obj.citizenship}</li>` : ''}
                 ${obj.movies ? `<li><span>Фильмы:</span> ${obj.movies.join(', ')}</li>`: ''}                    
                 </ul>
             <button type="button" class="modal__button-close">Закрыть</button>
         </div>`);
     };
 
-    const getHeroe = (id) => {
+    const getHeroe = (title) => {
         fetch('./db/dbHeroes.json')
             .then(res => {
                 if (res.ok) {
@@ -30,7 +31,11 @@ const modal = () => {
                     throw new Error('Данные были получены с ошибкой!');
                 }
             })
-            .then(data => openModal(data[id]))
+            .then(data => {
+                data.forEach(item => {
+                    item.name === title ? openModal(item) : '';
+                });
+            })
             .catch(error => console.log(error));
     };
 
@@ -51,9 +56,9 @@ const modal = () => {
     };
 
     cards.addEventListener('click', (e) => {
-        const id = e.target.closest('.card').dataset.id;
+        const movieTitle = e.target.closest('.card').querySelector('.card__title').textContent;
 
-        getHeroe(id);
+        getHeroe(movieTitle);
         closeModal();
     });
 

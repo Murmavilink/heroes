@@ -35,9 +35,9 @@
 
       <div class="main__innner">
         <div class="sidebar">
-          <div class="select-inner">
-            <select class="select-inner__item">
-              <option selected>Фильмы</option>
+          <div id="sort">
+            <select class="form-select" id="movies">
+              <option selected value="noselected">Фильмы</option>
               <option value="Captain America: Civil War">Captain America: Civil War</option>
               <option value="Captain America: The Winter Soldier">Captain America: The Winter Soldier</option>
               <option value="Avengers: Infinity War">Avengers: Infinity War</option>
@@ -55,49 +55,29 @@
               <option value="Ant-Man and the Wasp">Ant-Man and the Wasp</option>
             </select>
 
-            <select class="select-inner__item">
-              <option selected>Гражданство</option>
-              <option value="american">Америка</option>
-              <option value="asgardian">Асгардец</option>
-              <option value="sokovian">Соковян</option>
-              <option value="british">Британский</option>
-              <option value="jotun">Йотун</option>
-              <option value="chinese">Китайский</option>
-              <option value="wakandan">Ваканда</option>
+            <select class="form-select" id="citizenship">
+              <option selected value="noselected">Гражданство</option>
+              <option value="American">Америка</option>
+              <option value="Asgardian">Асгардец</option>
+              <option value="Sokovian">Соковян</option>
+              <option value="British">Британский</option>
+              <option value="Jotun">Йотун</option>
+              <option value="Chinese">Китайский</option>
+              <option value="Wakandan">Ваканда</option>
             </select>
 
-            <select class="select-inner__item">
-              <option selected>Поль</option>
-              <option value="man">Мужчина</option>
+            <select class="form-select" id="gender">
+              <option selected value="noselected">Поль</option>
+              <option value="male">Мужчина</option>
               <option value="female">Женщина</option>
             </select>
           </div>
         </div>
 
-        <div class="cards">
-
-          <!-- <a class="card" href="#">
-            <img class="card__img" src="/dbimage/97d1d9f934a350cee765c5ac1a466605.jpg" alt="card img">
-            <h3 class="card__title">Titan</h3>
-          </a> -->
-
-        </div>
+        <div class="cards"></div>
       </div>
 
-      <div class="modal">
-        <!-- <div class="modal__card">
-          <img class="modal__movie-backdrop" src="${respData.posterUrlPreview}" alt="">
-          <h2>
-            <span class="modal__movie-title">${respData.nameRu}</span>
-            <span class="modal__movie-release-year">${respData.year}</span>
-          </h2>
-          <ul class="modal__movie-info">
-            <div class="loader"></div>
-            <li></li>
-          </ul>
-          <button type="button" class="modal__button-close">Закрыть</button>
-        </div> -->
-      </div>
+      <div class="modal"></div>
 
       <button class="btn">Показать еще</button>
     </div>
