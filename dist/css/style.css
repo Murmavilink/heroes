@@ -177,9 +177,9 @@ body {
 }
 
 .modal__button-close {
-  font-family: 'Inter', sans-serif;
   padding: 6px 14px;
   margin: 10px;
+  font-family: 'Inter', sans-serif;
   font-size: 18px;
   line-height: 21px;
   background-color: #fff;
@@ -200,6 +200,12 @@ body {
   font-weight: 500;
   font-size: 24px;
   color: #0d2fb8;
+}
+
+.text-info {
+  font-size: 26px;
+  line-height: 32px;
+  color: #fff;
 }
 
 .stop-scrolling {
@@ -242,6 +248,28 @@ body {
 
   .modal__card {
     margin: 0 15px;
+  }
+
+}
+
+
+@media(max-width: 425px) {
+  
+  .modal__card {
+    padding: 10px 0;
+  }
+  
+  .modal__movie-backdrop {
+    width: 160px;
+  }
+
+  .modal__movie-info li {
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  .modal__movie-info li span {
+    font-size: 18px;
   }
 
 }

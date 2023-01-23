@@ -14,7 +14,7 @@ export const modal = () => {
                 <ul class="modal__movie-info">
                 <li><span>Имя:</span> ${obj.actors}</li>
                 ${obj.birthDay ? `<li><span>День рождения:</span> ${obj.birthDay}</li>` : '<li><span>День рождения:</span> &#9785;</li>'}
-                <li><span>Пол:</span> ${obj.gender === 'male' ? 'Мужской' : 'Женский'}</li>
+                ${obj.gender ? `<li><span>Пол:</span> ${obj.gender === 'male' ? 'Мужской' : 'Женский'}`: ''}</li>
                 ${obj.citizenship ? `<li><span>Гражданство: </span> ${obj.citizenship}</li>` : ''}
                 ${obj.movies ? `<li><span>Фильмы:</span> ${obj.movies.join(', ')}</li>`: ''}                    
                 </ul>
@@ -22,7 +22,7 @@ export const modal = () => {
         </div>`);
     };
 
-    const getHeroe = (title) => {
+    const getHero = (title) => {
         fetch('./db/dbHeroes.json')
             .then(res => {
                 if (res.ok) {
@@ -56,9 +56,13 @@ export const modal = () => {
     };
 
     cards.addEventListener('click', (e) => {
-        const movieTitle = e.target.closest('.card').querySelector('.card__title').textContent;
+        let movieTitle;
 
-        getHeroe(movieTitle);
+        if(!e.target.classList.contains('cards')) {
+            movieTitle = e.target.closest('.card').querySelector('.card__title').textContent;
+        }
+    
+        getHero(movieTitle);
         closeModal();
     });
 

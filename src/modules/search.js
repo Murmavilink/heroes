@@ -1,20 +1,8 @@
+import { renderData } from "./renderData";
+
 export const search = () => {
     const formHeader = document.querySelector('.form-header');
     const formSearch = document.querySelector('.form-header__search');
-
-    const cards = document.querySelector('.cards');
-
-    const render = (data) => {
-        cards.innerHTML = '';
-
-        data.forEach(item => {
-            cards.insertAdjacentHTML('beforeend', `
-            <div class="card">
-                <img class="card__img" src="./db/${item.photo}" alt="card img">
-                <h3 class="card__title">${item.name}</h3>
-            </div>`);  
-        });
-    };
 
     const searchData = (data, value) => {
         return data.filter(item => {
@@ -35,10 +23,8 @@ export const search = () => {
         resp.then(data => {
             let sortedData = data;
             sortedData = searchData(data, value.toLowerCase());
-            console.log(sortedData);
-
-
-            render(sortedData);
+            
+            renderData(sortedData);
         });
     };
 

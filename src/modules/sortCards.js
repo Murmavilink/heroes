@@ -1,19 +1,9 @@
- export const sortCards = () => {
+import { renderData } from "./renderData";
+
+export const sortCards = () => {
+    
     const filterblock = document.getElementById('sort');
-    const cards = document.querySelector('.cards');
-
-    const render = (data) => {
-        cards.innerHTML = '';
-
-        data.forEach(item => {
-            cards.insertAdjacentHTML('beforeend', `
-            <div class="card">
-                <img class="card__img" src="./db/${item.photo}" alt="card img">
-                <h3 class="card__title">${item.name}</h3>
-            </div>`);  
-        });
-    };
-
+    
     const sortedByMovies = (data, value) => {
         return data.filter(item => {
             if (item.movies) {
@@ -25,7 +15,7 @@
     const sorted = (data, key, value) => {
         return data.filter(item => {
             if (item[key]) {
-                return item[key] === value;
+                return item[key].toLowerCase() === value.toLowerCase();
             }
         });
     };
@@ -34,7 +24,13 @@
         const selectsList = filterblock.querySelectorAll('select');
 
         let resp = fetch('./db/dbHeroes.json')
-            .then(response => response.json())
+            .then(res => {
+                if(res.ok) {
+                    return res.json();
+                } else {
+                    throw new Error('Данные были получены с ошибкой!');
+                }
+            })
             .catch(error => console.log(error.message));
 
         resp.then(data => {
@@ -52,12 +48,10 @@
                     if (keyName !== 'movies') {
                         sortedData = sorted(sortedData, keyName, value);
                     }
-
-                    return sortedData;
                 }
             });
             
-            render(sortedData);
+            renderData(sortedData);
             
         });
     });

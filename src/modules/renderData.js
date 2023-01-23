@@ -1,4 +1,4 @@
-export const renderData = () => {
+export const renderData = (sortedData) => {
     const cards = document.querySelector('.cards');
     const btn = document.querySelector('.btn');
 
@@ -8,13 +8,15 @@ export const renderData = () => {
     const render = (data) => {
         cards.innerHTML = '';
 
-        data.forEach((item, index) => {
+        data.forEach(item => {
             cards.insertAdjacentHTML('beforeend', `
-            <div class="card" data-id="${index}">
-                <img class="card__img" src="./db/${item.photo}" alt="card img">
-                <h3 class="card__title">${item.name}</h3>
-            </div>`);  
+                <div class="card">
+                   <img class="card__img" src="./db/${item.photo}" alt="${item.name + ' img'}">
+                        <h3 class="card__title">${item.name}</h3>
+                </div>`);
         });
+
+        data.length === 0 ? cards.innerHTML = '<span class="text-info">no information about Heroes</span>' : '';
     };
 
     const sliceArray = (data, index) => {
@@ -23,10 +25,10 @@ export const renderData = () => {
 
     const changeData = (data) => {
         const newStack = stack * count;
-        
+
         render(sliceArray(data, newStack));
 
-        if(data.length > newStack) {
+        if (data.length > newStack) {
             count++;
         } else {
             btn.remove();
@@ -35,27 +37,37 @@ export const renderData = () => {
 
     const getHeroes = () => {
         fetch('./db/dbHeroes.json')
-        .then(res => {
-            if(res.ok) {
-                return res.json();
-            } else {
-                throw new Error('Данные были получены с ошибкой!');
-            }
-        })
-        .then(data => changeData(data))
-        .catch(error => console.log(error));
+            .then(res => {
+                if (res.ok) {
+                    return res.json();
+                } else {
+                    throw new Error('Данные были получены с ошибкой!');
+                }
+            })
+            .then(data => changeData(data))
+            .catch(error => console.log(error));
     };
 
-    btn.addEventListener('click', () => {
+    if(btn) {
+        btn.addEventListener('click', () => {
+            getHeroes();
+    
+            setTimeout(() => {
+                btn.scrollIntoView({
+                    block: "center",
+                    behavior: "smooth"
+                });
+            }, 30);
+    
+        });
+    }
+
+
+    if(!sortedData) {
         getHeroes();
+    } else {
+        btn ? btn.remove() : ''; 
+        render(sortedData);
+    }
 
-        setTimeout(() => {
-            btn.scrollIntoView({
-                block: "center", 
-                behavior: "smooth"
-            });
-        }, 30);
-    });
-
-    getHeroes();
 };
