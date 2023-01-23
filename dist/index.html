@@ -1,19 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <title>Marvel heroes</title>
   <script defer src="js/main.js"></script>
 </head>
+
 <body>
 
+  <header class="header">
+    <div class="container">
 
+      <div class="header__inner">
+        <a class="logo" href="index.html">
+          <img src="./images/logo.webp" alt="logo">
+        </a>
 
+        <form class="form-header">
+          <input class="form-header__search" placeholder="поиск" type="text">
+        </form>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+
+      <div class="main__innner">
+        <div class="sidebar">
+          <div id="sort">
+            <select class="form-select" id="movies">
+              <option selected value="noselected">Фильмы</option>
+              <option value="Captain America: Civil War">Captain America: Civil War</option>
+              <option value="Captain America: The Winter Soldier">Captain America: The Winter Soldier</option>
+              <option value="Avengers: Infinity War">Avengers: Infinity War</option>
+              <option value="Avengers: Endgame">Avengers: Endgame</option>
+              <option value="Avengers: Endgame">Avengers: Age of Ultron</option>
+              <option value="Iron Man 2">Iron Man 2</option>
+              <option value="Captain Marvel">Captain Marvel</option>
+              <option value="Doctor Strange">Doctor Strange</option>
+              <option value="Thor">Thor</option>
+              <option value="Thor: Ragnarok">Thor: Ragnarok</option>
+              <option value="Thor: The Dark World">Thor: The Dark World</option>
+              <option value="Guardians of the Galaxy Vol. 2">Guardians of the Galaxy</option>
+              <option value="Guardians of the Galaxy Vol. 2">Guardians of the Galaxy Vol. 2</option>
+              <option value="Ant-Man">Ant-Man</option>
+              <option value="Ant-Man and the Wasp">Ant-Man and the Wasp</option>
+            </select>
+
+            <select class="form-select" id="citizenship">
+              <option selected value="noselected">Гражданство</option>
+              <option value="American">Америка</option>
+              <option value="Asgardian">Асгардец</option>
+              <option value="Sokovian">Соковян</option>
+              <option value="British">Британский</option>
+              <option value="Jotun">Йотун</option>
+              <option value="Chinese">Китайский</option>
+              <option value="Wakandan">Ваканда</option>
+            </select>
+
+            <select class="form-select" id="gender">
+              <option selected value="noselected">Поль</option>
+              <option value="male">Мужчина</option>
+              <option value="female">Женщина</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="cards"></div>
+      </div>
+
+      <div class="modal"></div>
+
+      <button class="btn">Показать еще</button>
+    </div>
+  </main>
 
 </body>
+
 </html>
