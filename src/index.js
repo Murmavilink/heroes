@@ -1,9 +1,9 @@
-import getData from "./modules/getData";
+import { renderData } from "./modules/renderData";
 import { modal } from "./modules/modal";
 import { sortCards } from "./modules/sortCards";
 import { search } from "./modules/search";
 
-getData();
+renderData();
 modal();
 sortCards();
 search();

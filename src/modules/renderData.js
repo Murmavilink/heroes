@@ -1,4 +1,4 @@
-const getData = () => {
+export const renderData = () => {
     const cards = document.querySelector('.cards');
     const btn = document.querySelector('.btn');
 
@@ -59,5 +59,3 @@ const getData = () => {
 
     getHeroes();
 };
-
-export default getData;
