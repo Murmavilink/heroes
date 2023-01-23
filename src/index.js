@@ -1,8 +1,7 @@
 import getData from "./modules/getData";
-import modal from "./modules/modal";
-import filter from "./modules/filter";
-
+import { modal } from "./modules/modal";
+import { sortCards } from "./modules/sortCards";
 
 getData();
 modal();
-filter();
+sortCards();

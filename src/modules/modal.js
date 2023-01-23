@@ -1,4 +1,4 @@
-const modal = () => {
+export const modal = () => {
     const cards = document.querySelector('.cards');
     const modal = document.querySelector('.modal');
 
@@ -64,6 +64,3 @@ const modal = () => {
 
 
 };
-
-
-export default modal;
