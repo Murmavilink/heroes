@@ -1,3 +1,5 @@
+import { getData } from "./getData";
+
 export const renderData = (sortedData) => {
     const cards = document.querySelector('.cards');
     const btn = document.querySelector('.btn');
@@ -36,16 +38,7 @@ export const renderData = (sortedData) => {
     };
 
     const getHeroes = () => {
-        fetch('./db/dbHeroes.json')
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    throw new Error('Данные были получены с ошибкой!');
-                }
-            })
-            .then(data => changeData(data))
-            .catch(error => console.log(error));
+        getData().then(data => changeData(data)).catch(error => console.log(error.message));
     };
 
     if(btn) {
