@@ -2,10 +2,12 @@ import { renderData } from "./renderData";
 import { getData } from "./getData";
 
 
-export const sortCards = () => {
-    
+export const sortCards = async () => {
     const filterblock = document.getElementById('sort');
     
+    const heroesData = await getData();
+
+
     const sortedByMovies = (data, value) => {
         return data.filter(item => {
             if (item.movies) {
@@ -13,6 +15,7 @@ export const sortCards = () => {
             }
         });
     };
+    
 
     const sorted = (data, key, value) => {
         return data.filter(item => {
@@ -22,11 +25,11 @@ export const sortCards = () => {
         });
     };
 
+
     filterblock.addEventListener('change', () => {
         const selectsList = filterblock.querySelectorAll('select');
 
-        getData().then(data => {
-            let sortedData = data;
+            let sortedData = heroesData;
 
             selectsList.forEach(selectItem => {
                 if (selectItem.value !== 'noselected') {
@@ -44,8 +47,6 @@ export const sortCards = () => {
             });
             
             renderData(sortedData);
-            
-        }).catch(error => console.log(error.message));
     });
 };
 

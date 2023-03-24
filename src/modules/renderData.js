@@ -1,11 +1,15 @@
 import { getData } from "./getData";
 
-export const renderData = (sortedData) => {
+export const renderData = async (sortedData) => {
     const cards = document.querySelector('.cards');
     const btn = document.querySelector('.btn');
 
+    const heroesData = await getData();
+
+
     let stack = 9;
     let count = 1;
+
 
     const render = (data) => {
         cards.innerHTML = '';
@@ -21,9 +25,9 @@ export const renderData = (sortedData) => {
         data.length === 0 ? cards.innerHTML = '<span class="text-info">no information about Heroes</span>' : '';
     };
 
-    const sliceArray = (data, index) => {
-        return data.slice(0, index);
-    };
+
+    const sliceArray = (data, index) => data.slice(0, index);
+
 
     const changeData = (data) => {
         const newStack = stack * count;
@@ -37,11 +41,10 @@ export const renderData = (sortedData) => {
         }
     };
 
-    const getHeroes = () => {
-        getData().then(data => changeData(data)).catch(error => console.log(error.message));
-    };
 
-    
+    const getHeroes = () => changeData(heroesData);
+
+
     if(btn) {
         btn.addEventListener('click', () => {
             getHeroes();

@@ -1,9 +1,12 @@
 import { renderData } from "./renderData";
 import { getData } from "./getData";
 
-export const search = () => {
+export const search = async () => {
     const formHeader = document.querySelector('.form-header');
     const formSearch = document.querySelector('.form-header__search');
+
+    const heroesData = await getData();
+
 
     const searchData = (data, value) => {
         return data.filter(item => {
@@ -11,14 +14,14 @@ export const search = () => {
         });
     };
 
+
     const getHeroes = (value) => {
-        getData().then(data => {
-            let sortedData = data;
-            sortedData = searchData(data, value.toLowerCase());
-            
-            renderData(sortedData);
-        }).catch(error => console.log(error.message));
+        let sortedData = heroesData;
+        sortedData = searchData(heroesData, value.toLowerCase());
+
+        renderData(sortedData);
     };
+
 
     const formEventListener = (param) => {
         formHeader.addEventListener(param, (e) => {
@@ -26,8 +29,8 @@ export const search = () => {
             getHeroes(formSearch.value);
         });
     };
-    
-    formEventListener('input');
-    formEventListener('submit');  
 
+
+    formEventListener('input');
+    formEventListener('submit');
 };

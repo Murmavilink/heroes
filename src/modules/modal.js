@@ -1,8 +1,11 @@
 import { getData } from "./getData";
 
-export const modal = () => {
+export const modal = async () => {
     const cards = document.querySelector('.cards');
     const modal = document.querySelector('.modal');
+
+    const heroesData = await getData();
+
 
     const openModal = (obj) => {
         document.body.classList.add('stop-scrolling');
@@ -24,15 +27,13 @@ export const modal = () => {
         </div>`);
     };
 
-    const getHero = (title) => {
 
-        getData().then(data => {
-            data.forEach(item => {
-                item.name === title ? openModal(item) : '';
-            });
-        }).catch(error => console.log(error.message));
-        
+    const getHero = (title) => {
+        heroesData.forEach(item => {
+            item.name === title ? openModal(item) : '';
+        });
     };
+
 
     const closeModal = () => {
         modal.addEventListener('click', (e) => {
@@ -50,6 +51,7 @@ export const modal = () => {
         });
     };
 
+
     cards.addEventListener('click', (e) => {
         let movieTitle;
 
@@ -60,6 +62,4 @@ export const modal = () => {
         getHero(movieTitle);
         closeModal();
     });
-
-
 };
