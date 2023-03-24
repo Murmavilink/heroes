@@ -41,17 +41,18 @@ export const renderData = (sortedData) => {
         getData().then(data => changeData(data)).catch(error => console.log(error.message));
     };
 
+    
     if(btn) {
         btn.addEventListener('click', () => {
             getHeroes();
-    
+            
             setTimeout(() => {
                 btn.scrollIntoView({
                     block: "center",
                     behavior: "smooth"
                 });
-            }, 30);
-    
+            }, 500);
+
         });
     }
 
