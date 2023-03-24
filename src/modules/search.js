@@ -1,4 +1,5 @@
 import { renderData } from "./renderData";
+import { getData } from "./getData";
 
 export const search = () => {
     const formHeader = document.querySelector('.form-header');
@@ -11,21 +12,12 @@ export const search = () => {
     };
 
     const getHeroes = (value) => {
-        let resp = fetch('./db/dbHeroes.json')
-        .then(res => {
-            if(res.ok) {
-                return res.json();
-            } else {
-                throw new Error('Данные были получены с ошибкой!');
-            }
-        }).catch(error => console.log(error));
-
-        resp.then(data => {
+        getData().then(data => {
             let sortedData = data;
             sortedData = searchData(data, value.toLowerCase());
             
             renderData(sortedData);
-        });
+        }).catch(error => console.log(error.message));
     };
 
     const formEventListener = (param) => {

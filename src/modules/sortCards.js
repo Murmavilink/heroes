@@ -1,4 +1,6 @@
 import { renderData } from "./renderData";
+import { getData } from "./getData";
+
 
 export const sortCards = () => {
     
@@ -23,17 +25,7 @@ export const sortCards = () => {
     filterblock.addEventListener('change', () => {
         const selectsList = filterblock.querySelectorAll('select');
 
-        let resp = fetch('./db/dbHeroes.json')
-            .then(res => {
-                if(res.ok) {
-                    return res.json();
-                } else {
-                    throw new Error('Данные были получены с ошибкой!');
-                }
-            })
-            .catch(error => console.log(error.message));
-
-        resp.then(data => {
+        getData().then(data => {
             let sortedData = data;
 
             selectsList.forEach(selectItem => {
@@ -53,7 +45,7 @@ export const sortCards = () => {
             
             renderData(sortedData);
             
-        });
+        }).catch(error => console.log(error.message));
     });
 };
 
